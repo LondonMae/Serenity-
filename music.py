@@ -4,13 +4,12 @@ import random
 import spotipy
 import webbrowser
 
-clientID = "2c4caf3e40664518b5f62dbd9cfc6e4f"
-clientSecret = "42c33e9f97a24f8eae42741e9fad2237"
-redirectURI = 'http://google.com/'
-scope = "user-top-read,user-read-recently-played,user-read-playback-state,user-modify-playback-state"
-oauth_object = spotipy.SpotifyOAuth(clientID,clientSecret,redirectURI, scope=scope)
-token_dict = oauth_object.get_cached_token()
+import json
+with open('test.txt') as f:
+    token_dict = json.load(f)
+
 token = token_dict['access_token']
+print("\n" + token)
 sp = spotipy.Spotify(auth=token)
 user = sp.current_user()
 
@@ -60,18 +59,13 @@ print(recommendations_link)
 
 res = requests.get(recommendations_link, headers = headers)
 
-print(res.text)
 parsed = json.loads(res.text)
-
-print(parsed)
 
 song = get_track(parsed, 0, type="tracks")
 uri = get_track_feature(song, feature="uri")
 
 res = sp.devices()
 res = res["devices"]
-
-print(res)
 
 web_player = res[0]["id"]
 
