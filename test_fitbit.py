@@ -26,8 +26,8 @@ auth2_client=fitbit.Fitbit(CLIENT_ID,CLIENT_SECRET,oauth2=True,access_token=ACCE
 
 
 # This is the date of data that I want.
-startTime = pd.datetime(year = 2022, month = 9, day = 1)
-endTime = pd.datetime(year = 2022, month = 9, day = 4)
+startTime = pd.datetime(year = 2022, month = 3, day = 1)
+endTime = pd.datetime(year = 2022, month = 3, day = 1)
 
 
 
@@ -37,8 +37,9 @@ allDates = pd.date_range(start=startTime, end=endTime)
 
 for oneDate in allDates:
     oneDate = oneDate.date().strftime("%Y-%m-%d")
-    oneDayData = auth2_client.sleep(date=oneDate)
-
-    stages_df = oneDayData
+    oneDayData = dict(auth2_client.sleep(date=oneDate))
+    oneDayData.pop("minutesData", None)
+    print(oneDayData["minutesData"])
+    stages_df = pd.DataFrame(oneDayData["sleep"])
 
     print(stages_df)

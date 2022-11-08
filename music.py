@@ -71,7 +71,7 @@ web_player = res[0]["id"]
 
 for i in range(len(res)):
     print (res[i]["name"])
-    if res[i]["name"] == "Dubolt Web Player":
+    if res[i]["name"] == "Web Player":
         print("hi")
         web_player= res[i]["id"]
 print(web_player)

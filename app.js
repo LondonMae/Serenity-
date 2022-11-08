@@ -50,13 +50,13 @@ app.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // sign into fitbit (collect token)
-  PythonShell.run('test_fitbit.py', null, function (err) {
-    if (err) throw err;
-    console.log('finished fitbit');
-  });
+  // PythonShell.run('test_fitbit.py', null, function (err) {
+  //   if (err) throw err;
+  //   console.log('finished fitbit');
+  // });
 
   // redirect to spotify authorization
-  var scope = "user-top-read,user-read-recently-played,user-read-playback-state,user-modify-playback-state";
+  var scope = "user-top-read,user-read-recently-played,user-read-playback-state,user-modify-playback-state,streaming";
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -111,10 +111,12 @@ app.get('/callback', function(req, res) {
         });
 
         // run script to play music
-        PythonShell.run('music.py', null, function (err) {
+        PythonShell.run('alarm.py', null, function (err) {
           if (err) throw err;
           console.log('finished');
         });
+
+        console.log("test")
 
 
         // we can also pass the token to the browser to make requests from there
@@ -123,7 +125,7 @@ app.get('/callback', function(req, res) {
             access_token: access_token,
             refresh_token: refresh_token
           }));
-          
+
       } else {
         res.redirect('/#' +
           querystring.stringify({
