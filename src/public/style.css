@@ -1,0 +1,87 @@
+﻿body {
+    font-family: monospace, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 30em;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffb223;
+    color: #fff;
+}
+
+#myBox {
+    width: 100%;
+    box-sizing: border-box;
+    border: solid 5px #ffd500;
+    height: 380px;
+    border: 5%;
+    padding-top:25px;
+    margin-top: 190px;
+    background-color: #ffdd33;
+}
+
+#time {
+    font-size: 65px;
+    margin-top: -65px;
+}
+
+input[type=number], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #ff5100;
+  font-family: monospace, sans-serif;
+  font-size: 24px;
+}
+
+h1 {
+    color: #ff5100;
+}
+form {
+  color: #ff5100;
+}
+
+#alarmHrs,
+#alarmMins,
+#alarmSecs,
+#mySelect {
+    width: 100px;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100px;
+    background-color: #ff5100;
+    color: white;
+    padding: 14px 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+a {
+    width: 100px;
+    background-color: #ff5100;
+    color: white;
+    padding: 14px 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #0aa000;
+}

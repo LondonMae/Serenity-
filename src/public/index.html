@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Example of the Authorization Code flow with Spotify</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <style type="text/css">
       #login, #loggedin {
         display: none;
@@ -36,13 +36,15 @@
         <h1> Your Alarm is set!<h1>
       </div>
       <div id = "loggedin">
+        <div id = "myBox">
         <h1>Enter a Time</h1>
         <form action="http://localhost:8888/alarm" method="POST">
-  Hour: <input type="number" name="hour" size = "2" value = "8" maxlength = "2" min = "0" max = "24"><br>
-  Minute: <input type="number" name="minute" size = "2" value = "00" maxlength = "2" min = "00" max = "60"><br>
+  Hour: <input id = "alarmHrs" type="number" name="hour" size = "2" value = "08" maxlength = "2" min = "0" max = "24"><br>
+  Minute: <input id = "alarmMins" type="number" name="minute" size = "2" value = "00" maxlength = "2" min = "00" max = "60"><br>
        <button onclick = "setAlarm()" type="submit">Set Alarm</button>
 
  <!-- implement interface here -->
+</div>
       </div>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>

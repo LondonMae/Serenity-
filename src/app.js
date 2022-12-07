@@ -44,8 +44,9 @@ var generateRandomString = function(length) {
 var stateKey = 'spotify_auth_state';
 
 var app = express();
+var folder;
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'),express.static("public"))
    .use(cors())
    .use(cookieParser());
    app.use(bodyParser());
@@ -77,6 +78,14 @@ app.use(express.static(__dirname + '/public'))
        expires_at: (new Date().getTime() / 1000) + 24*60*60
      });
 
+     folder = profile["displayName"]
+     console.log(folder)
+     try {
+      fs.mkdirSync(profile["displayName"])
+    }
+    catch(e) {
+      console.log(e)
+    }
      // write url to txt
      fs.writeFile('fitbit_data.txt', JSON.stringify({
        accessToken: accessToken,
@@ -210,6 +219,7 @@ app.get('/callback', function(req, res) {
             refresh_token = body.refresh_token;
 
         // write tokens to txt file
+        console.log(folder)
         fs.writeFile('user_data/test.txt', JSON.stringify(body), function (err) {
           if (err) return console.log(err);
           console.log('token > test.txt');
@@ -254,7 +264,7 @@ app.post("/alarm", function(req, res) {
   messages = ""
   pyshell.on('message', function (message) {
     // received a message sent from the Python script (a simple "print" statement)
-    messages+=message + "\n"
+    messages+='<h1 style="font-size: 20px;color:#ff5100;font-family: monospace, sans-serif;text-align: center;">' + message + "</h1>"
 
   });
   pyshell.end(function (err, code, signal) {

@@ -49,16 +49,16 @@ def get_sleep_data(auth2_client, startTime, endTime):
     def cleanup(break_date, date_list):
         # send data to csv for processing
         stages_df = pd.DataFrame(date_list)
-        if exists("sleep3.csv"):
+        if exists("sleep.csv"):
             if len(date_list) != 0:
-                with open('sleepDate3.txt', 'w') as f:
+                with open('sleepDate.txt', 'w') as f:
                     f.write(str(break_date))
-                stages_df.to_csv('sleep3.csv', mode="a", index=False, header = "False")
+                stages_df.to_csv('sleep.csv', mode="a", index=False, header = "False")
         else:
             if len(date_list) != 0:
-                with open('sleepDate3.txt', 'w') as f:
+                with open('sleepDate.txt', 'w') as f:
                     f.write(str(break_date))
-                stages_df.to_csv('sleep3.csv', mode="w", index=False, header = "True")
+                stages_df.to_csv('sleep.csv', mode="w", index=False, header = "True")
 
     break_date = next_date
     for oneDate in allDates:
@@ -121,10 +121,10 @@ else:
     startTime = datetime.datetime(year = year, month = month, day = day)
 
     dt = datetime.datetime(year=year, month=month, day=day)
-    next_chunk = dt.timestamp() - 150*24*60*60
+    next_chunk = dt.timestamp() - 60*24*60*60
     next_date = datetime.datetime.fromtimestamp(next_chunk).strftime("%Y-%m-%d")
-    if exists("sleepDate3.txt"):
-        f = open('sleepDate3.txt', 'r')
+    if exists("sleepDate.txt"):
+        f = open('sleepDate.txt', 'r')
         next_date = f.readline()
         f.close()
     year, month, day = today(next_date)

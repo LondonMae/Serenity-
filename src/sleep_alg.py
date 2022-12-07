@@ -98,7 +98,18 @@ def predict(h, m):
     final_string = ""
     for type in avg:
         avg[type] /= len(asleep)
-        final_string += "Average " + type + ": " + str(avg[type]) + "\n"
+        if type == "Start" or type == "End" or type == "Sleep" or type == "Awake":
+            n = str(time.strftime("%H:%M", time.gmtime(avg[type]*3600)))
+            final_string = "Average " + type + ": " + n + "\n"
+        elif type == "deep percent" or type == "rem percent" or type == "efficiency":
+            n = "{0:.0%}".format(avg[type])
+            final_string = "Average " + type + ": " + n + "\n"
+        elif type == "Deep" or type == "Rem":
+            n = str(int(avg[type])) + " minutes"
+            final_string = "Average " + type + ": " + n + "\n"
+        else:
+            final_string = "Average " + type + ": " + str(avg[type]) + "\n"
+        print(final_string)
 
 
     # keep data foe prediction
@@ -127,7 +138,7 @@ def predict(h, m):
 
     # Question:
     # given alarm time and ideal rem, when should they go to sleep?
-    reg_query = [alarm_time, 90]
+    reg_query = [alarm_time, 100]
     reg_k_nearest_neighbors, reg_prediction = knn(
         reg_data, reg_query, k=4, distance_fn=euclidean_distance, choice_fn=mean
     )

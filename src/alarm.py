@@ -33,7 +33,7 @@ def turn_on_lights():
     print("lights")
     global lights_complete
     lights_complete = True
-    #lights.sunrise()
+    lights.sunrise()
 
 def nav():
     print("nav")
