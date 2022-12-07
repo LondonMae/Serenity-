@@ -26,3 +26,8 @@ Find the links to the APIs and their documentation below:
 - [Yeelight](https://yeelight.readthedocs.io/en/latest/)
 - [Fitbit](https://dev.fitbit.com/build/reference/web-api/)
 
+## Bugs
+
+- HTTPS functionality: the node js server runs as an http connection, but the spotify and fitbit only support callbacks to https connections. This would be a future implementation to be able to run the alarm from any device. 
+
+
