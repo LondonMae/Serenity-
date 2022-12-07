@@ -80,7 +80,7 @@ for i in range(len(res)):
     print (res[i]["name"]) # debug
     print(res[i]["id"])
 
-
+device_id = "test"
 # next phase: how can we dynamically get this ID
 def alarm():
-    play(uri,"c6c07150ee8e14333fe5e0cd665556265eaa4c64")
+    play(uri,device_id)

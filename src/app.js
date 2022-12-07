@@ -22,8 +22,8 @@ var bodyParser = require('body-parser');
 var https = require("https")
 
 // hardcoded from spotify app dashboard (dev settings)
-var client_id = '2c4caf3e40664518b5f62dbd9cfc6e4f'; // Your client id
-var client_secret = '42c33e9f97a24f8eae42741e9fad2237'; // Your secret
+var client_id = ''; // Your client id
+var client_secret = ''; // Your secret
 var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
@@ -58,8 +58,8 @@ app.use(express.static(__dirname + '/public'),express.static("public"))
      saveUninitialized: true
    }));
 
-   const CLIENT_ID = "238T5P";
-   const CLIENT_SECRET = "1d37c3db41c1eb5b84b770fb97069f59";
+   const CLIENT_ID = "";
+   const CLIENT_SECRET = "";
 
    app.use(passport.initialize());
 
