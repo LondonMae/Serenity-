@@ -12,7 +12,8 @@ Serenity is the robot alarm clock that offers recommendations and statistics abo
 - Python Version: Python 3.8
 - NodeJS Version: v18.12.0. 
 
-You must install all NodeJS dependencies using `npm install <package_name>`. The list of dependencies is in the packagaes.json file 
+You must install all NodeJS dependencies using `npm install <package_name>`. The list of dependencies is in the packagaes.json file. 
+All python dependencies can be installed using 'python -m pip install -r requirements.txt'
 
 ## Navigation
 
