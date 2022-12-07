@@ -2,11 +2,8 @@
 Serenity is the robot alarm clock that offers recommendations and statistics about when to go to sleep based on your Fitbit data, and wakes you up with new music catered to the user as well as a simulated sunrise.
 
 - [Installation and Dependencies](#installation-and-dependencies)
-- [Spotify](#spotify)
-- [Fitbit](#how-to-install)
-- [Yeelight](#how-to-install)
-- [Prediction Algorithm](#prediction-algorithm)
 - [Running the Webserver](#running-the-webserver)
+- [APIs](#apis)
 
 ## Installation and Dependencies
 - Python Version: Python 3.8
@@ -22,10 +19,6 @@ For token access using fitbit and spotify login authentication, you will need to
 1. run the nodeJS script app.js using `node app.js`
 2. You can access the website at http://localhost:8888
 
-## Navigation
+## APIs
 
-## App Interface
 
-## Fitbit Data
-
-## K Nearest-Neighbor
