@@ -20,5 +20,9 @@ For token access using fitbit and spotify login authentication, you will need to
 2. You can access the website at http://localhost:8888
 
 ## APIs
+Find the links to the APIs and their documentation below:  
 
+- [Spotify](https://developer.spotify.com/documentation/web-api/)
+- [Yeelight](https://yeelight.readthedocs.io/en/latest/)
+- [Fitbit](https://dev.fitbit.com/build/reference/web-api/)
 
